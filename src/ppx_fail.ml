@@ -12,14 +12,12 @@ let map = object
     match e.pexp_desc with
     | Pexp_ident { txt = Lident "failwiths"; _ } ->
       let loc = e.pexp_loc in
-      pexp_apply e ~loc [("here", Ppx_here_expander.lift_position ~loc
-                                    loc.Location.loc_start)]
+      pexp_apply e ~loc [("here", Ppx_here_expander.lift_position ~loc)]
     | _ -> super#expression e
 end
 
 let () =
-  Ppx_driver.register_code_transformation
-    ~name:"fail"
+  Ppx_driver.register_transformation "fail"
     ~impl:map#structure
     ~intf:map#signature
 ;;
