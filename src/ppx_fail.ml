@@ -12,7 +12,7 @@ let map = object
     match e.pexp_desc with
     | Pexp_ident { txt = Lident "failwiths"; _ } ->
       let loc = e.pexp_loc in
-      pexp_apply e ~loc [("here", Ppx_here_expander.lift_position ~loc)]
+      pexp_apply e ~loc [(Labelled "here", Ppx_here_expander.lift_position ~loc)]
     | _ -> super#expression e
 end
 
