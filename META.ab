@@ -1,6 +1,6 @@
 version = "$(pkg_version)"
 description = "Add location to calls to failwiths"
-requires = "ppx_core ppx_driver ppx_here.expander"
+requires = "compiler-libs.common ppx_core ppx_driver ppx_here.expander"
 archive(ppx_driver, byte  ) = "ppx_fail.cma"
 archive(ppx_driver, native) = "ppx_fail.cmxa"
 plugin(ppx_driver, byte  ) = "ppx_fail.cma"
