@@ -1,6 +1,6 @@
 (executables
  ((names (test))
-  (preprocess (((pps (pa_here pa_fail)) All)))))
+  (preprocess (pps (ppx_here ppx_fail)))))
 
 (alias ((name DEFAULT)
         (deps (test.ml.pp))))

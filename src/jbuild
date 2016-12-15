@@ -1,7 +1,6 @@
 (library
  ((name ppx_fail)
   (public_name ppx_fail)
-  (public_release ((kind ppx_rewriter)))
-  (wrapped false)
-  (libraries (ocamlcommon ppx_core ppx_driver ppx_here_expander))
-  (preprocess ((metaquot All)))))
+  (kind ppx_rewriter)
+  (libraries (compiler-libs.common ppx_core ppx_driver ppx_here.expander))
+  (preprocess metaquot)))
