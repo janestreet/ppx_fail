@@ -1,10 +1,12 @@
-open! StdLabels
-open! Ppx_core.Std
+open! Ppx_core
 
 let expand (e : Parsetree.expression) =
   match e.pexp_desc with
   | Pexp_apply (id, args) when
-      not (List.exists args ~f:(fun (lab, _) -> lab = Asttypes.Labelled "here")) ->
+      not (List.exists args ~f:(fun (lab, _) ->
+        match lab with
+        | Labelled "here" -> true
+        | _ -> false)) ->
     let here = Ppx_here_expander.lift_position ~loc:id.pexp_loc in
     Some { e with pexp_desc = Pexp_apply (id, (Labelled "here", here) :: args) }
   | Pexp_ident _ ->

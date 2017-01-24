@@ -2,5 +2,5 @@
  ((name ppx_fail)
   (public_name ppx_fail)
   (kind ppx_rewriter)
-  (libraries (compiler-libs.common ppx_core ppx_driver ppx_here.expander))
-  (preprocess metaquot)))
+  (libraries (ppx_core ppx_driver ppx_here.expander))
+  (preprocess (pps (ppx_metaquot)))))
