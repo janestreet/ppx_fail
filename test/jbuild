@@ -1,5 +1,6 @@
 (executables
  ((names (test))
+(flags (:standard -safe-string))
   (preprocess (pps (ppx_here ppx_fail ppx_driver.runner)))))
 
 (alias ((name DEFAULT)
