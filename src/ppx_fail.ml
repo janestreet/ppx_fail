@@ -1,4 +1,5 @@
-open! Ppx_core
+open Base
+open Ppxlib
 
 let expand (e : Parsetree.expression) =
   match e.pexp_desc with
@@ -18,6 +19,6 @@ let expand (e : Parsetree.expression) =
 ;;
 
 let () =
-  Ppx_driver.register_transformation "fail"
+  Driver.register_transformation "fail"
     ~rules:[ Context_free.Rule.special_function "failwiths" expand ]
 ;;

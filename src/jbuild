@@ -3,8 +3,8 @@
   (public_name ppx_fail)
   (kind ppx_rewriter)
   (flags (:standard -safe-string))
-  (libraries (ppx_core ppx_driver ppx_here.expander))
-  (preprocess (pps (ppx_metaquot ppx_driver.runner)))))
+  (libraries (base ppxlib ppx_here.expander))
+  (preprocess (pps (ppxlib.metaquot ppxlib.runner)))))
 
 
 (jbuild_version 1)
